@@ -3,553 +3,843 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>santina piazzese spratte — ux & behavioral research | currently: contractor at GoConvey (ex MessageBroadcast)</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Santina Piazzese Spratte — UX & Behavioral Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --bg: #4b3c2f;
-  --bg-card: #3d3025;
-  --bg-lift: #564535;
-  --text: #f2f2f2;
-  --text-mid: #d4cbc0;
-  --text-muted: #a89880;
-  --teal: #5ce1e6;
-  --teal-dim: rgba(92,225,230,0.12);
-  --rule: rgba(242,242,242,0.14);
-  --rule-soft: rgba(242,242,242,0.07);
-  --radius: 10px;
-  --radius-sm: 6px;
+  --bg: #f5f2ed;
+  --bg-off: #edeae4;
+  --bg-card: #ffffff;
+  --text: #1a1714;
+  --text-mid: #4a4540;
+  --text-muted: #8a8178;
+  --teal: #0f6e56;
+  --teal-light: #e1f5ee;
+  --teal-mid: #1d9e75;
+  --rule: rgba(26,23,20,0.1);
+  --rule-light: rgba(26,23,20,0.06);
+  --radius: 16px;
+  --radius-sm: 10px;
   --radius-pill: 99px;
+  --shadow: 0 2px 12px rgba(26,23,20,0.08);
+  --shadow-hover: 0 8px 32px rgba(26,23,20,0.14);
 }
+
 html { scroll-behavior: smooth; }
-body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; -webkit-font-smoothing: antialiased; }
-p, li, .card-text, .about-text, .subtitle, .cred-sub { line-height: 1.65; letter-spacing: -0.01em; }
-.page { max-width: 940px; margin: 0 auto; padding: 0 1.25rem 6rem; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-/* HEADER */
-header { padding: 3rem 0 2rem; border-bottom: 1px solid var(--rule); margin-bottom: 0; }
-.header-inner { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; }
-h1 { font-size: clamp(1.75rem, 6vw, 3rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.06em; color: var(--text); opacity: 0; animation: fadeUp 0.5s ease forwards 0.2s; }
-.subtitle { font-size: 13px; color: var(--text-mid); font-weight: 300; margin-top: 0.85rem; max-width: 480px; opacity: 0; animation: fadeUp 0.5s ease forwards 0.3s; }
-.header-links { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; opacity: 0; animation: fadeUp 0.5s ease forwards 0.4s; }
-.header-links a { font-size: 12px; color: var(--text-mid); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-.header-links a:hover { color: var(--teal); }
+.page { max-width: 1040px; margin: 0 auto; padding: 0 1.5rem 6rem; }
 
-/* TABS */
-.tabs { display: flex; border-bottom: 1px solid var(--rule); margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.5s ease forwards 0.5s; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-.tabs::-webkit-scrollbar { display: none; }
-.tab-btn { padding: 1rem 1.25rem; font-size: 14px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-muted); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; margin-bottom: -1px; font-family: 'Montserrat', sans-serif; white-space: nowrap; flex-shrink: 0; }
-.tab-btn:hover { color: var(--text); }
-.tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+/* HERO */
+.hero {
+  padding: 4rem 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 4rem;
+}
+.hero-text { max-width: 600px; }
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 2px;
+}
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.1s;
+}
+h1 em {
+  font-style: italic;
+  color: var(--teal);
+}
+.hero-desc {
+  font-size: 16px;
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.2s;
+}
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.3s;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--teal);
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: -0.01em;
+}
+.btn-primary:hover { background: #0a5241; transform: translateY(-1px); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--rule);
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-secondary:hover { border-color: var(--text); background: rgba(26,23,20,0.04); }
 
-/* BURGER */
-.burger-menu { display: none; margin-bottom: 2rem; position: relative; }
-.burger-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0.85rem 1.1rem; background: var(--bg-card); border: 1px solid var(--rule); border-radius: var(--radius); cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--teal); letter-spacing: -0.02em; transition: background 0.2s; }
-.burger-btn:hover { background: var(--bg-lift); }
-.burger-btn svg { flex-shrink: 0; transition: transform 0.25s; }
-.burger-btn.open svg { transform: rotate(180deg); }
-.burger-dropdown { display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: var(--bg-card); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; z-index: 100; box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
-.burger-dropdown.open { display: block; }
-.burger-item { display: block; width: 100%; padding: 0.85rem 1.1rem; background: none; border: none; border-bottom: 1px solid var(--rule-soft); font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-muted); text-align: left; cursor: pointer; transition: background 0.15s, color 0.15s; letter-spacing: -0.02em; }
-.burger-item:last-child { border-bottom: none; }
-.burger-item:hover { background: var(--bg-lift); color: var(--text); }
-.burger-item.active { color: var(--teal); background: var(--teal-dim); }
+.hero-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--bg-card);
+  box-shadow: var(--shadow-hover);
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.15s;
+  flex-shrink: 0;
+}
 
-/* PANELS */
-.panel { display: none; }
-.panel.active { display: block; animation: fadeUp 0.4s ease forwards; opacity: 0; }
+/* TRUST BADGES */
+.trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.4s;
+}
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  color: var(--text-mid);
+  font-weight: 400;
+}
+.trust-badge strong { color: var(--text); font-weight: 600; }
+.badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
 
-/* SECTION HEADER */
-.track-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-.track-title { font-size: 14px; font-weight: 600; letter-spacing: -0.02em; color: var(--text-mid); white-space: nowrap; }
-.track-rule { flex: 1; height: 1px; background: var(--rule); }
-.track-label { font-size: 12px; color: var(--text-muted); font-style: italic; white-space: nowrap; }
+/* SECTION */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  white-space: nowrap;
+}
+.section-rule { flex: 1; height: 1px; background: var(--rule); }
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
 
-/* GRID */
-.projects { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-
-/* CARDS */
-.card { background: var(--bg-card); border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; transition: background 0.2s ease, border-color 0.2s ease; }
-.card:hover { background: var(--bg-lift); border-color: rgba(242,242,242,0.22); }
-.card-banner { width: 100%; display: block; height: auto; border-radius: 0; }
-.card-preview { padding: 1.1rem 1.5rem 0.9rem; }
-.card-org { font-size: 12px; color: var(--teal); font-weight: 600; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
-.card-hook { font-size: 13px; color: var(--text-mid); font-weight: 300; line-height: 1.5; margin-bottom: 0.85rem; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.85rem; }
-.tag { font-size: 11px; padding: 3px 10px; border-radius: var(--radius-pill); background: rgba(242,242,242,0.1); border: 1px solid rgba(242,242,242,0.2); color: var(--text-mid); font-weight: 400; cursor: default; }
-.card-toggle { display: flex; align-items: center; gap: 6px; background: none; border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: var(--teal); letter-spacing: 0.03em; text-transform: uppercase; padding: 0 0 0.9rem 0; transition: color 0.2s; }
-.card-toggle:hover { opacity: 0.8; }
-.card-toggle svg { transition: transform 0.25s; flex-shrink: 0; }
-.card-toggle.open svg { transform: rotate(180deg); }
-.card-detail { display: none; padding: 0 1.5rem 1.25rem; border-top: 1px solid var(--rule-soft); padding-top: 1rem; }
-.card-detail.open { display: block; }
-.card-row { margin-bottom: 0.65rem; }
-.card-label { font-size: 11px; font-weight: 700; color: var(--text); display: block; margin-bottom: 3px; letter-spacing: 0.03em; text-transform: uppercase; }
-.card-text { font-size: 12px; color: var(--text-mid); line-height: 1.65; }
-.card-outcome { margin-top: 1rem; padding: 0.75rem; background: var(--teal-dim); border-left: 2px solid var(--teal); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 12px; color: var(--text-mid); }
-.card-outcome strong { color: var(--teal); font-weight: 700; display: block; font-size: 11px; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 4px; }
-
-/* TOOLS */
-.tools-section { margin-top: 2rem; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--rule); border-left: 3px solid var(--teal); border-radius: var(--radius); }
-.tools-section-first { margin-top: 0; }
-.tools-title { font-size: 11px; font-weight: 700; color: var(--teal); margin-bottom: 1.25rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.tool-group-label { font-size: 11px; font-weight: 600; color: var(--text-mid); margin-bottom: 0.5rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--rule-soft); letter-spacing: 0.02em; }
-.tool-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
-.tool-pill { font-size: 12px; padding: 4px 12px; border-radius: var(--radius-pill); background: rgba(242,242,242,0.1); border: 1px solid rgba(242,242,242,0.25); color: var(--text); font-weight: 400; cursor: default; }
+/* SERVICES */
+#services { margin-bottom: 5rem; }
+.services-intro {
+  font-size: 16px;
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.25s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--teal);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.service-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.service-card:hover::before { opacity: 1; }
+.service-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--teal-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-shrink: 0;
+}
+.service-icon svg { width: 22px; height: 22px; stroke: var(--teal); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.service-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+.service-desc {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.65;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 1.5rem;
+}
+.service-tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  color: var(--text-mid);
+  font-weight: 500;
+}
+.service-footer {
+  border-top: 1px solid var(--rule-light);
+  padding-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.service-price {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.service-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: var(--teal);
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  transition: background 0.2s;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+.service-cta:hover { background: #0a5241; }
+.service-cta svg { width: 13px; height: 13px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ABOUT */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
-.about-block-title { font-size: 11px; font-weight: 700; color: var(--teal); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--rule); letter-spacing: 0.08em; text-transform: uppercase; }
-.about-text { font-size: 13px; color: var(--text-mid); font-weight: 300; margin-bottom: 0.75rem; }
-.about-list { list-style: none; }
-.about-list li { font-size: 13px; color: var(--text-mid); font-weight: 300; padding: 0.35rem 0; border-bottom: 1px solid var(--rule-soft); display: flex; justify-content: space-between; gap: 1rem; line-height: 1.5; }
-.about-list li:last-child { border-bottom: none; }
-.about-list .lang { font-weight: 600; color: var(--text); }
-.about-list .level { color: var(--text-mid); font-size: 12px; }
-.credential-row { padding: 0.6rem 0 0.6rem 0.75rem; border-bottom: 1px solid var(--rule-soft); border-left: 2px solid rgba(92,225,230,0.25); margin-bottom: 2px; }
-.credential-row:last-child { border-bottom: none; }
-.cred-title { font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
-.cred-sub { font-size: 12px; color: var(--text-mid); font-weight: 300; margin-top: 2px; }
-.skill-grid { display: flex; flex-wrap: wrap; gap: 7px; }
-.skill-pill { font-size: 12px; padding: 4px 12px; border-radius: var(--radius-pill); background: rgba(242,242,242,0.1); border: 1px solid rgba(242,242,242,0.25); color: var(--text); font-weight: 400; cursor: default; }
-.a11y-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: var(--radius); background: var(--teal-dim); border: 1px solid rgba(92,225,230,0.3); font-size: 13px; color: var(--text); font-weight: 500; margin-top: 1rem; line-height: 1.5; letter-spacing: -0.01em; }
-.a11y-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+#about { margin-bottom: 5rem; }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.about-bio {
+  font-size: 15px;
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.75;
+}
+.about-bio + .about-bio { margin-top: 0.85rem; }
+.about-right { display: flex; flex-direction: column; gap: 1.25rem; }
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.5;
+  padding-top: 4px;
+}
+.stat-label strong { display: block; color: var(--text); font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+
+.creds {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.cred-item {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--rule-light);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.cred-item:last-child { border-bottom: none; }
+.cred-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal-mid);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.cred-text { font-size: 13px; color: var(--text-mid); font-weight: 300; line-height: 1.5; }
+.cred-text strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 1px; font-size: 13px; }
+
+/* CONTACT */
+#contact { margin-bottom: 5rem; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 2rem;
+  transition: box-shadow 0.2s;
+}
+.contact-card:hover { box-shadow: var(--shadow); }
+.contact-card-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--teal-light);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+}
+.contact-card-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.contact-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
+}
+.contact-card p {
+  font-size: 13px;
+  color: var(--text-mid);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+.contact-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.contact-card a:hover { opacity: 0.75; }
+.contact-card a svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* BIG CTA BLOCK */
+.cta-block {
+  background: var(--text);
+  border-radius: var(--radius);
+  padding: 3.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+}
+.cta-block-text h2 {
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+.cta-block-text p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  max-width: 420px;
+  line-height: 1.65;
+}
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: #fff;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  transition: opacity 0.2s, transform 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btn-white:hover { opacity: 0.9; transform: translateY(-1px); }
 
 /* FOOTER */
-footer { border-top: 1px solid var(--rule); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 3rem; }
-.footer-name { font-size: 13px; font-weight: 600; color: var(--text-muted); letter-spacing: -0.02em; }
-.footer-links { display: flex; gap: 1.5rem; }
-.footer-links a { font-size: 12px; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+.footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+.footer-links a {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
 .footer-links a:hover { color: var(--teal); }
 
-@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.animate { opacity: 0; animation: fadeUp 0.55s ease forwards; }
 
 /* MOBILE */
+@media (max-width: 860px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 640px) {
   .page { padding: 0 1rem 4rem; }
-  .header-inner { grid-template-columns: 1fr; gap: 1.25rem; }
-  .header-links { align-items: flex-start; flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
-  .header-inner img { width: 72px !important; height: 72px !important; }
-  .tabs { display: none; }
-  .burger-menu { display: block; }
-  .projects { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 0 2.5rem; }
+  .hero-photo { width: 100px; height: 100px; order: -1; }
+  .hero-header { display: flex; align-items: center; gap: 1.25rem; }
+  h1 { font-size: 2.2rem; }
+  .hero-cta { flex-direction: column; }
+  .hero-cta a { justify-content: center; }
+  .trust-row { gap: 6px; }
+  .trust-badge { font-size: 12px; padding: 7px 13px; }
+  .services-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
-  .photo-strip { grid-template-columns: 1fr 1fr !important; }
-  .photo-strip img:last-child { display: none; }
-  .tools-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .track-label { display: none; }
-  footer { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .cta-block { padding: 2.5rem 1.75rem; flex-direction: column; align-items: flex-start; }
+  .cta-block-text h2 { font-size: 1.6rem; }
+  footer { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 400px) {
-  .tools-grid { grid-template-columns: 1fr; }
-  h1 { letter-spacing: -0.04em; }
-}
-
-/* MOBILE CAROUSEL */
-.carousel-dots, .carousel-nav, .carousel-hint { display: none; }
-@media (max-width: 640px) {
-  .projects { display: block; position: relative; overflow: hidden; touch-action: pan-y; }
-  .projects .card { display: none; }
-  .projects .card.carousel-active { display: block; }
-  .carousel-wrap { position: relative; }
-  .carousel-dots { display: flex; justify-content: center; gap: 7px; margin-top: 1rem; }
-  .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(242,242,242,0.2); border: none; padding: 0; cursor: pointer; transition: background 0.2s, transform 0.2s; }
-  .carousel-dot.active { background: var(--teal); transform: scale(1.2); }
-  .carousel-hint { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 0.6rem; opacity: 1; transition: opacity 0.5s; }
-  .carousel-hint.hidden { opacity: 0; }
-  .carousel-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 0.85rem; }
-  .carousel-btn { background: var(--bg-card); border: 1px solid var(--rule); border-radius: var(--radius-pill); color: var(--text-mid); font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; padding: 6px 16px; cursor: pointer; transition: background 0.2s, color 0.2s; letter-spacing: -0.01em; }
-  .carousel-btn:disabled { opacity: 0.25; cursor: default; }
-  .carousel-btn:not(:disabled):hover { background: var(--bg-lift); color: var(--text); }
-  .carousel-counter { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+  h1 { font-size: 1.9rem; }
 }
 </style>
 </head>
 <body>
 <div class="page">
 
-<header>
-  <div class="header-inner">
-    <div style="display:flex; align-items:center; gap:1.25rem;">
-      <img src="photo-main.jpg" alt="Santina Piazzese Spratte"
-        style="width:180px; height:180px; border-radius:50%; object-fit:cover; border:2px solid var(--rule); flex-shrink:0; opacity:0; animation:fadeUp 0.5s ease forwards 0.1s;"
-        onerror="this.style.display='none'">
-      <div>
-        <h1>santina lourdes piazzese<br>spratte</h1>
-        <p class="subtitle"><strong style="display:block; font-size:15px; color:var(--teal); font-weight:700; letter-spacing:-0.03em; margin-bottom:0.4rem;">Senior Experience Researcher & Behavioral Strategist</strong>6+ years translating human insight into product direction, service design, and organizational strategy — across enterprise, AI startups, B2C platforms, and consulting work. Currently: Contractor at GoConvey (ExMessageBroadcast)</p>
-      </div>
-    </div>
-    <div class="header-links">
-      <a href="mailto:psi.santina@gmail.com">Let's connect: psi.santina@gmail.com</a>
-      <a>Address: Av del Libertador 13249 3A, Buenos Aires</a>
-      <a>Call Me: +54 911 61585447</a>
-      <a href="https://www.researchgate.net/profile/Santina-Piazzese-Spratte" target="_blank">ResearchGate</a>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Available for freelance work</div>
+    <h1>Research that moves <em>products</em> forward.</h1>
+    <p class="hero-desc">I'm Santina — a behavioral scientist and senior UX researcher with 6+ years helping product teams make smarter decisions. Based in Buenos Aires, working globally.</p>
+    <div class="hero-cta">
+      <a href="mailto:psi.santina@gmail.com" class="btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        Get in touch
+      </a>
+      <a href="#services" class="btn-secondary">See my services</a>
     </div>
   </div>
+  <img src="photo-main.jpg" alt="Santina Piazzese Spratte" class="hero-photo" onerror="this.style.display='none'">
 </header>
 
-<!-- DESKTOP TABS -->
-<div class="tabs">
-  <button class="tab-btn active" onclick="switchTab('uxr', this)">UX & behavioral research</button>
-  <button class="tab-btn" onclick="switchTab('about', this)">About</button>
-  <button class="tab-btn" onclick="switchTab('tools', this)">Tools</button>
+<!-- TRUST BADGES -->
+<div class="trust-row">
+  <div class="trust-badge"><span class="badge-dot"></span> <strong>6+</strong> years experience</div>
+  <div class="trust-badge"><span class="badge-dot"></span> MSc Social Influence · University of Amsterdam</div>
+  <div class="trust-badge"><span class="badge-dot"></span> IELTS 8.5/9 English</div>
+  <div class="trust-badge"><span class="badge-dot"></span> Worked with Accenture, AI startups & B2C platforms</div>
+  <div class="trust-badge"><span class="badge-dot"></span> Buenos Aires · remote-friendly</div>
 </div>
 
-<!-- MOBILE BURGER -->
-<div class="burger-menu" id="burgerMenu">
-  <p style="font-size:12px; color:var(--text-mid); font-weight:600; letter-spacing:0.05em; text-transform:uppercase; margin-top:0.5rem; margin-bottom:0.5rem;">Explore my portfolio</p>
-  <button class="burger-btn" id="burgerBtn" onclick="toggleBurger()">
-    <span id="burgerLabel">UX & behavioral research</span>
-    <svg width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1L7 7L13 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
-  <div class="burger-dropdown" id="burgerDropdown">
-    <button class="burger-item active" onclick="burgerSwitch('uxr', 'UX & behavioral research', this)">UX & behavioral research</button>
-    <button class="burger-item" onclick="burgerSwitch('about', 'About', this)">About</button>
-    <button class="burger-item" onclick="burgerSwitch('tools', 'Tools', this)">Tools</button>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <span class="section-label">Services</span>
+    <span class="section-rule"></span>
   </div>
-</div>
+  <h2>What I can do for you</h2>
+  <p class="services-intro">I offer end-to-end research services — from early discovery through to strategic synthesis and delivery. Every engagement is tailored to your specific challenge.</p>
 
-<!-- UXR PANEL -->
-<div class="panel active" id="panel-uxr">
-  <div class="track-header">
-    <span class="track-title">UX & behavioral research</span>
-    <span class="track-rule"></span>
-    <span class="track-label">selected work · 2020–present</span>
+  <div class="services-grid">
+
+    <div class="service-card animate" style="animation-delay:0.1s">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
+      <div class="service-name">Discovery & Generative Research</div>
+      <div class="service-desc">Uncover what your users actually need — before you build. Exploratory interviews, ethnographic research, and behavioral mapping to fuel product decisions.</div>
+      <div class="service-tags">
+        <span class="service-tag">In-depth interviews</span>
+        <span class="service-tag">Diary studies</span>
+        <span class="service-tag">Ethnography</span>
+        <span class="service-tag">Journey mapping</span>
+      </div>
+      <div class="service-footer">
+        <span class="service-price">Pricing on request</span>
+        <a href="mailto:psi.santina@gmail.com?subject=Quote Request: Discovery Research" class="service-cta">
+          Get a quote
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="service-card animate" style="animation-delay:0.15s">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="service-name">UX Audits & Usability Testing</div>
+      <div class="service-desc">Systematic evaluation of your product's current experience — identifying friction, cognitive load, and accessibility gaps with clear, actionable recommendations.</div>
+      <div class="service-tags">
+        <span class="service-tag">Heuristic evaluation</span>
+        <span class="service-tag">Usability testing</span>
+        <span class="service-tag">WCAG 2.1 audit</span>
+        <span class="service-tag">Task analysis</span>
+      </div>
+      <div class="service-footer">
+        <span class="service-price">Pricing on request</span>
+        <a href="mailto:psi.santina@gmail.com?subject=Quote Request: UX Audit" class="service-cta">
+          Get a quote
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="service-card animate" style="animation-delay:0.2s">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="service-name">Persona Development & Segmentation</div>
+      <div class="service-desc">Data-grounded personas and audience segmentation frameworks that align product, marketing, and design teams around who you're actually building for.</div>
+      <div class="service-tags">
+        <span class="service-tag">Research-based personas</span>
+        <span class="service-tag">Audience segmentation</span>
+        <span class="service-tag">Behavioral profiles</span>
+      </div>
+      <div class="service-footer">
+        <span class="service-price">Pricing on request</span>
+        <a href="mailto:psi.santina@gmail.com?subject=Quote Request: Personas" class="service-cta">
+          Get a quote
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="service-card animate" style="animation-delay:0.25s">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 19V6l12-3v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="15" r="3"/></svg>
+      </div>
+      <div class="service-name">Behavioral Strategy & Product Direction</div>
+      <div class="service-desc">Apply behavioral economics and decision science to improve conversions, engagement, and product adoption. Research translated directly into strategy.</div>
+      <div class="service-tags">
+        <span class="service-tag">Behavioral economics</span>
+        <span class="service-tag">Nudge design</span>
+        <span class="service-tag">A/B testing strategy</span>
+        <span class="service-tag">Decision science</span>
+      </div>
+      <div class="service-footer">
+        <span class="service-price">Pricing on request</span>
+        <a href="mailto:psi.santina@gmail.com?subject=Quote Request: Behavioral Strategy" class="service-cta">
+          Get a quote
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="service-card animate" style="animation-delay:0.3s">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <div class="service-name">Market & Competitor Research</div>
+      <div class="service-desc">Landscape analysis, competitor audits, and market positioning research to help you find your angle and understand the space you're entering or competing in.</div>
+      <div class="service-tags">
+        <span class="service-tag">Competitor analysis</span>
+        <span class="service-tag">Market sizing</span>
+        <span class="service-tag">Landscape mapping</span>
+        <span class="service-tag">Positioning</span>
+      </div>
+      <div class="service-footer">
+        <span class="service-price">Pricing on request</span>
+        <a href="mailto:psi.santina@gmail.com?subject=Quote Request: Market Research" class="service-cta">
+          Get a quote
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="service-card animate" style="animation-delay:0.35s">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <div class="service-name">Workshop Facilitation & ResearchOps</div>
+      <div class="service-desc">I design and run research workshops, sprints, and synthesis sessions — and help teams build the infrastructure to do ongoing research well.</div>
+      <div class="service-tags">
+        <span class="service-tag">Workshop design</span>
+        <span class="service-tag">Insight synthesis</span>
+        <span class="service-tag">ResearchOps setup</span>
+        <span class="service-tag">Team training</span>
+      </div>
+      <div class="service-footer">
+        <span class="service-price">Pricing on request</span>
+        <a href="mailto:psi.santina@gmail.com?subject=Quote Request: Workshops" class="service-cta">
+          Get a quote
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
   </div>
-  <div class="projects">
+</section>
 
-    <div class="card">
-      <img src="convey banner.png" alt="GoConvey" class="card-banner" onerror="this.style.display='none'">
-      <div class="card-preview">
-        <div class="card-org">GoConvey (ex MessageBroadcast) · Communications Technology · 2023–present</div>
-        <div class="card-hook">Market research, persona strategy & conversational AI — experience strategy and C-suite collaboration for new product lines in U.S. utilities and citizen well-being markets.</div>
-        <div class="tags"><span class="tag">Market research</span><span class="tag">Conversational AI</span><span class="tag">Experience strategy</span><span class="tag">Tone of voice</span><span class="tag">Workshops</span></div>
-        <button class="card-toggle" onclick="toggleCard(this)">
-          <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 7L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          read more
-        </button>
-      </div>
-      <div class="card-detail">
-        <div class="card-row"><span class="card-label">Role</span><span class="card-text">UX researcher — market insights & strategy, working directly with C-suite stakeholders in a fast-moving B2B product environment</span></div>
-        <div class="card-row"><span class="card-label">Challenge</span><span class="card-text">Define new product lines and inform GTM strategy for U.S. utilities and citizen well-being markets through research into crisis communication, workflow usability, and conversational AI design</span></div>
-        <div class="card-row"><span class="card-label">What I did</span><span class="card-text">Led ongoing strategic market and consumer research across multiple product lines: competitor analysis, audience segmentation, and behavioral insight. Developed tone-of-voice guidelines and persona frameworks for new product lines. Facilitated workshops and brainstorming sessions with cross-functional and C-suite teams.</span></div>
-        <div class="card-outcome"><strong>Outcome</strong>Research directly informed GTM strategy and product direction for multiple new product lines, adopted by C-suite as organizational direction</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="accenture banner.png" alt="Accenture" class="card-banner" onerror="this.style.display='none'">
-      <div class="card-preview">
-        <div class="card-org">Wolox / Accenture · Banking & Healthcare · 2020–2022</div>
-        <div class="card-hook">Behavioral science applied to enterprise service design — behavioral economics lead across client engagements for two major Latin American institutions.</div>
-        <div class="tags"><span class="tag">Behavioral economics</span><span class="tag">Service design</span><span class="tag">Enterprise</span><span class="tag">Client delivery</span><span class="tag">Workshops</span></div>
-        <button class="card-toggle" onclick="toggleCard(this)">
-          <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 7L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          read more
-        </button>
-      </div>
-      <div class="card-detail">
-        <div class="card-row"><span class="card-label">Role</span><span class="card-text">UX & service design researcher within Accenture's Digital Business Design team — behavioral science and market research lead across enterprise client engagements</span></div>
-        <div class="card-row"><span class="card-label">Challenge</span><span class="card-text">Translate behavioral and market research into service design strategy for two major Latin American institutions with complex, multi-stakeholder ecosystems</span></div>
-        <div class="card-row"><span class="card-label">What I did</span><span class="card-text">Led dual-audience research for OSDE (end-users + health professionals) informing full digital ecosystem redesign. Applied behavioral economics to BBVA's insurance communications strategy — research-led copy and channel optimization. Delivered to senior client stakeholders; facilitated strategic workshops with product, design, and marketing teams. Managed client-facing research end to end: scope, method, fieldwork, synthesis, presentation.</span></div>
-        <div class="card-outcome"><strong>Outcome</strong>BBVA: behavioral insights improved insurance campaign click-through rates. OSDE: research adopted into full digital ecosystem redesign, improving experience for both end-users and health professionals.</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="silencio banner.png" alt="Silencio" class="card-banner" onerror="this.style.display='none'">
-      <div class="card-preview">
-        <div class="card-org">Silencio · Sound Mapping App · Freelance · 2024</div>
-        <div class="card-hook">Auditing a live redesign for a product with 100k+ users and zero data infrastructure — built the entire user understanding layer from scratch.</div>
-        <div class="tags"><span class="tag">UX audit</span><span class="tag">Amplitude</span><span class="tag">Journey mapping</span><span class="tag">Qual research</span><span class="tag">Accessibility</span></div>
-        <button class="card-toggle" onclick="toggleCard(this)">
-          <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 7L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          read more
-        </button>
-      </div>
-      <div class="card-detail">
-        <div class="card-row"><span class="card-label">Role</span><span class="card-text">Strategic UX research consultant (freelance) — brought in to build the entire user understanding layer for a product mid-redesign, with no existing analytics or user knowledge</span></div>
-        <div class="card-row"><span class="card-label">Challenge</span><span class="card-text">A fast-growing app with 100k+ users was rebuilding their product through an external agency — essentially blind. No analytics infrastructure, no user research, no behavioral data. The redesign was already underway when I joined.</span></div>
-        <div class="card-row"><span class="card-label">What I did</span><span class="card-text">Mapped current and new app journeys across 4 core flows — translating user actions into digital behavior events. Defined the full Amplitude event taxonomy, enabling behavioral tracking for the first time. Conducted heuristic, usability, and accessibility audit of new wireframes — delivered actionable design recommendations including contrast failures and friction-heavy funnels. Led end-to-end qualitative study: 15 user interviews, screener, guide, synthesis, and prioritized recommendations report.</span></div>
-        <div class="card-outcome"><strong>Outcome</strong>Delivered the entire user understanding layer in 4 months — analytics infrastructure, behavioral taxonomy, UX audit, and qualitative insights — grounding an active agency redesign in real user behavior for the first time</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="almaya banner.png" alt="Almaya Life" class="card-banner" onerror="this.style.display='none'">
-      <div class="card-preview">
-        <div class="card-org">Almaya Life · Wellbeing Technology · First research hire · 2021–2023</div>
-        <div class="card-hook">Building a research practice from zero as the first research hire at an early-stage AI startup — founding team of 3, no benchmarks, no playbook.</div>
-        <div class="tags"><span class="tag">Mixed methods</span><span class="tag">Discovery</span><span class="tag">Service blueprints</span><span class="tag">Journey mapping</span><span class="tag">AI product</span></div>
-        <button class="card-toggle" onclick="toggleCard(this)">
-          <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 7L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          read more
-        </button>
-      </div>
-      <div class="card-detail">
-        <div class="card-row"><span class="card-label">Role</span><span class="card-text">First research hire (founding team of 3) — built the entire research function from zero in an early AI product space with no existing market benchmarks</span></div>
-        <div class="card-row"><span class="card-label">Challenge</span><span class="card-text">Define and validate a product addressing sensitive human experiences — grief, end-of-life, family wellbeing — in a market that didn't yet exist, while AI capabilities were evolving rapidly</span></div>
-        <div class="card-row"><span class="card-label">What I did</span><span class="card-text">Led full discovery through go-to-market research: generative interviews, usability testing, surveys, A/B testing, persona development, journey mapping, service blueprints, and push notification experiments. Segmented user base (Alzheimer caregivers, new parents, millennial wellbeing consumers). Coordinated external freelancers and managed research workstreams against evolving OKRs.</span></div>
-        <div class="card-outcome"><strong>Outcome</strong>Research drove three strategic product pivots, two new product lines, and AI model fine-tuning — established as the primary engine of product-market fit decisions</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="ourritual banner.png" alt="OurRitual" class="card-banner" onerror="this.style.display='none'">
-      <div class="card-preview">
-        <div class="card-org">OurRitual · Mental Wellness B2C · Sole researcher · 2023–2026</div>
-        <div class="card-hook">Brand identity, dual-audience research & narrative analysis — sole researcher owning the full cycle across product, marketing, and brand including a complete company rebrand.</div>
-        <div class="tags"><span class="tag">Mixed methods</span><span class="tag">Narrative analysis</span><span class="tag">Brand research</span><span class="tag">Amplitude</span><span class="tag">Dual audience</span></div>
-        <button class="card-toggle" onclick="toggleCard(this)">
-          <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1L6 7L11 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          read more
-        </button>
-      </div>
-      <div class="card-detail">
-        <div class="card-row"><span class="card-label">Role</span><span class="card-text">Sole researcher — owned the full research cycle end-to-end across product, marketing, and brand strategy simultaneously</span></div>
-        <div class="card-row"><span class="card-label">Challenge</span><span class="card-text">Understand two fundamentally different user groups — subscribers and therapists — while actively contributing to product direction and supporting a complete company rebrand</span></div>
-        <div class="card-row"><span class="card-label">What I did</span><span class="card-text">Led flagship mixed-methods study directly informing the company's new name, slogan, and brand identity. Conducted narrative analysis across session transcripts and survey data. Built data-based personas with the data team. Integrated Amplitude behavioral analytics alongside qualitative findings. Trained team members in qualitative methods.</span></div>
-        <div class="card-outcome"><strong>Outcome</strong>Research operationalized as strategic input across product, marketing, and brand simultaneously — sole researcher serving three functions and shaping organizational identity</div>
-      </div>
-    </div>
-
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-label">About</span>
+    <span class="section-rule"></span>
   </div>
-</div>
+  <h2>A researcher who goes deep</h2>
 
-<!-- ABOUT PANEL -->
-<div class="panel" id="panel-about">
-  <div class="track-header">
-    <span class="track-title">About</span>
-    <span class="track-rule"></span>
-  </div>
   <div class="about-grid">
-
     <div>
-      <div class="about-block-title">Who I am</div>
-      <div class="photo-strip" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:1.25rem;">
-        <img src="photo-1.jpg" alt="" style="width:100%; height:130px; object-fit:cover; border-radius:8px; border:1px solid var(--rule);" onerror="this.style.display='none'">
-        <img src="photo-2.jpg" alt="" style="width:100%; height:130px; object-fit:cover; border-radius:8px; border:1px solid var(--rule);" onerror="this.style.display='none'">
-        <img src="photo-3.jpg" alt="" style="width:100%; height:130px; object-fit:cover; border-radius:8px; border:1px solid var(--rule);" onerror="this.style.display='none'">
-      </div>
-      <p class="about-text">I'm a behavioral scientist and senior experience researcher based in Buenos Aires. I bring together mixed-methods research, behavioral economics, and service design thinking to translate complex human insight into product direction, organizational strategy, and tangible design outcomes.</p>
-      <p class="about-text">My background is in cognitive and social psychology. I hold an MSc in Social Influence from the University of Amsterdam and a postgraduate MA in Cognitive Psychotherapy — which means my research isn't just methodologically rigorous, it's grounded in a deep understanding of how people actually think, decide, and change.</p>
-      <p class="about-text">I've spent six years embedded in core product and strategy teams — building research practices from zero, delivering to enterprise clients, and consistently operating as a decision-making partner rather than a research service provider.</p>
-      <div class="a11y-badge">
-        <span class="a11y-dot"></span>
-        Open to senior UXR, experience strategy, and service design research contractor roles. Buenos Aires based.
+      <p class="about-bio">I'm a behavioral scientist and senior UX researcher with a background in cognitive and social psychology. I combine rigorous research methodology with a deep understanding of how people think, decide, and change behavior.</p>
+      <p class="about-bio" style="margin-top:1rem;">What sets me apart: I don't just deliver reports — I operate as a strategic partner. I've built research practices from zero, run studies solo at scale, and consistently influenced C-suite and product direction across startups, agencies, and enterprise teams.</p>
+      <p class="about-bio" style="margin-top:1rem;">I'm fluent in English (IELTS 8.5/9) and Spanish (native), with advanced Italian and conversational Dutch, making me genuinely effective working across markets and international teams.</p>
+      <div style="margin-top:2rem; display:flex; flex-wrap:wrap; gap:8px;">
+        <span style="font-size:12px; padding:5px 14px; border-radius:99px; background:var(--teal-light); color:var(--teal); font-weight:600; border:1px solid rgba(15,110,86,0.2);">Mixed-methods research</span>
+        <span style="font-size:12px; padding:5px 14px; border-radius:99px; background:var(--teal-light); color:var(--teal); font-weight:600; border:1px solid rgba(15,110,86,0.2);">Behavioral economics</span>
+        <span style="font-size:12px; padding:5px 14px; border-radius:99px; background:var(--teal-light); color:var(--teal); font-weight:600; border:1px solid rgba(15,110,86,0.2);">Service design</span>
+        <span style="font-size:12px; padding:5px 14px; border-radius:99px; background:var(--teal-light); color:var(--teal); font-weight:600; border:1px solid rgba(15,110,86,0.2);">Product analytics</span>
+        <span style="font-size:12px; padding:5px 14px; border-radius:99px; background:var(--teal-light); color:var(--teal); font-weight:600; border:1px solid rgba(15,110,86,0.2);">WCAG accessibility</span>
+        <span style="font-size:12px; padding:5px 14px; border-radius:99px; background:var(--teal-light); color:var(--teal); font-weight:600; border:1px solid rgba(15,110,86,0.2);">Workshop facilitation</span>
       </div>
     </div>
 
-    <div>
-      <div class="about-block-title">Languages</div>
-      <ul class="about-list" style="margin-bottom:1.5rem">
-        <li><span class="lang">Spanish</span><span class="level">Native</span></li>
-        <li><span class="lang">English</span><span class="level">C2 — IELTS 8.5/9</span></li>
-        <li><span class="lang">Italian</span><span class="level">C1 — Advanced</span></li>
-        <li><span class="lang">Dutch</span><span class="level">A2 — actively learning</span></li>
-      </ul>
-      <div class="about-block-title">Core skills</div>
-      <div class="skill-grid">
-        <span class="skill-pill">Mixed-methods research</span>
-        <span class="skill-pill">Behavioral economics & decision science</span>
-        <span class="skill-pill">Service design & experience strategy</span>
-        <span class="skill-pill">Workshop facilitation & design thinking</span>
-        <span class="skill-pill">Consumer & market research</span>
-        <span class="skill-pill">Client-facing project management</span>
-        <span class="skill-pill">ResearchOps</span>
-        <span class="skill-pill">Stakeholder narrative & strategic communication</span>
-        <span class="skill-pill">Usability & accessibility (WCAG 2.1)</span>
-        <span class="skill-pill">Audience segmentation & persona creation</span>
-        <span class="skill-pill">Product analytics</span>
-        <span class="skill-pill">Qualitative research design & analysis</span>
+    <div class="about-right">
+      <div class="stat-card">
+        <div class="stat-num">6+</div>
+        <div class="stat-label"><strong>Years of experience</strong>Embedded in product teams, agencies, and early-stage startups across B2B, B2C, healthcare, finance, and AI.</div>
+      </div>
+      <div class="creds">
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text"><strong>MSc Psychology — Social Influence</strong>University of Amsterdam · 2025–2026</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text"><strong>Postgraduate MA — Cognitive Psychotherapy</strong>Universidad Nacional de Mar del Plata · 2023–2024</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text"><strong>BSc Psychology — Honors (Licenciatura)</strong>Universidad de Belgrano · Academic excellence & Rotary awards</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text"><strong>MIT Leading Digital Transformation</strong>Awarded by Becas Santander · 2020</div>
+        </div>
+        <div class="cred-item">
+          <div class="cred-dot"></div>
+          <div class="cred-text"><strong>Published researcher</strong>Peer-reviewed publications in behavioral science and mental health technology</div>
+        </div>
       </div>
     </div>
-
-    <div>
-      <div class="about-block-title">Formal Education</div>
-      <div class="credential-row"><div class="cred-title">MSc Psychology — Social Influence</div><div class="cred-sub">University of Amsterdam · 2025–2026 · Behavioral decision-making, persuasion, mixed-methods methodology, consumer behavior research. Market research module taught by IPSOS.</div></div>
-      <div class="credential-row"><div class="cred-title">Postgraduate MA — Cognitive Psychotherapy</div><div class="cred-sub">Universidad Nacional de Mar del Plata · 2023–2024</div></div>
-      <div class="credential-row"><div class="cred-title">BSc Psychology — Honors (Licenciatura)</div><div class="cred-sub">Universidad de Belgrano · 2018–2021 · Academic excellence & Rotary awards</div></div>
-    </div>
-
-    <div>
-      <div class="about-block-title">Publications</div>
-      <div class="credential-row"><div class="cred-title">Estrategias para la validación de apps en Salud Mental</div><div class="cred-sub">Peer-reviewed · Piramide Editions · Behavioral science & mental health technology</div></div>
-      <div class="credential-row"><div class="cred-title">Inventory of Interpersonal Problems-32 (IIP-32)</div><div class="cred-sub">Peer-reviewed · Cogent Mental Health · Psychometric properties in adolescents</div></div>
-      <div class="credential-row"><div class="cred-title">Propiedades Psicometricas del DASS-21</div><div class="cred-sub">First Author · CES Magazine · In progress</div></div>
-      <div class="about-block-title" style="margin-top:1.5rem;">Additional Education</div>
-      <div class="credential-row"><div class="cred-title">Behavioral Design</div><div class="cred-sub">2021 · Universidad de San Andres, Argentina</div></div>
-      <div class="credential-row"><div class="cred-title">Behavioral Economics in Action</div><div class="cred-sub">2021 · University of Toronto via EdX</div></div>
-      <div class="credential-row"><div class="cred-title">MIT Leading Digital Transformation Scholarship</div><div class="cred-sub">2020 · MIT, awarded by Becas Santander</div></div>
-    </div>
-
   </div>
+</section>
+
+<!-- BIG CTA -->
+<div class="cta-block animate">
+  <div class="cta-block-text">
+    <h2>Let's work together.</h2>
+    <p>Tell me about your project and I'll get back to you with a tailored proposal and quote.</p>
+  </div>
+  <a href="mailto:psi.santina@gmail.com?subject=Project Inquiry" class="btn-white">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+    Email me
+  </a>
 </div>
 
-<!-- TOOLS PANEL -->
-<div class="panel" id="panel-tools">
-  <div class="track-header">
-    <span class="track-title">Tools & platforms</span>
-    <span class="track-rule"></span>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-label">Contact</span>
+    <span class="section-rule"></span>
   </div>
-  <div class="tools-section tools-section-first">
-    <div class="tools-title">Research & UX</div>
-    <div class="tools-grid">
-      <div class="tool-group">
-        <div class="tool-group-label">Research platforms</div>
-        <div class="tool-list"><span class="tool-pill">Maze</span><span class="tool-pill">Prolific</span><span class="tool-pill">Dovetail</span><span class="tool-pill">Optimal Workshop</span><span class="tool-pill">Userberry</span><span class="tool-pill">BuildBetter</span><span class="tool-pill">BetterFunnel</span><span class="tool-pill">Wistia</span></div>
-      </div>
-      <div class="tool-group">
-        <div class="tool-group-label">Survey & analytics</div>
-        <div class="tool-list"><span class="tool-pill">Qualtrics</span><span class="tool-pill">Typeform</span><span class="tool-pill">SPSS</span><span class="tool-pill">Amplitude</span><span class="tool-pill">Mixpanel</span><span class="tool-pill">Looker</span><span class="tool-pill">Excel</span></div>
-      </div>
-      <div class="tool-group">
-        <div class="tool-group-label">Design & workshops</div>
-        <div class="tool-list"><span class="tool-pill">Figma & Figjam</span><span class="tool-pill">Miro</span><span class="tool-pill">Mural</span><span class="tool-pill">Canva</span></div>
-      </div>
-      <div class="tool-group">
-        <div class="tool-group-label">Productivity & collab</div>
-        <div class="tool-list"><span class="tool-pill">Notion</span><span class="tool-pill">Jira</span><span class="tool-pill">Slack</span><span class="tool-pill">Loom</span><span class="tool-pill">Otter.ai</span><span class="tool-pill">Monday</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="tools-section">
-    <div class="tools-title">Additional tools</div>
-    <div class="tools-grid">
-      <div class="tool-group">
-        <div class="tool-group-label">Creative & production</div>
-        <div class="tool-list"><span class="tool-pill">Adobe Illustrator</span><span class="tool-pill">Adobe Photoshop</span><span class="tool-pill">Adobe Premiere Pro</span><span class="tool-pill">CapCut</span><span class="tool-pill">Descript</span></div>
-      </div>
-      <div class="tool-group">
-        <div class="tool-group-label">Web & publishing</div>
-        <div class="tool-list"><span class="tool-pill">HTML/CSS</span><span class="tool-pill">WordPress</span><span class="tool-pill">Squarespace</span></div>
-      </div>
-      <div class="tool-group">
-        <div class="tool-group-label">AI & productivity</div>
-        <div class="tool-list"><span class="tool-pill">Claude / LLMs</span><span class="tool-pill">CycleAI</span><span class="tool-pill">ElevenLabs</span></div>
-      </div>
-    </div>
-  </div>
-</div>
+  <h2>Get in touch</h2>
+  <p style="font-size:15px; color:var(--text-mid); font-weight:300; line-height:1.7; max-width:540px; margin-bottom:2rem;">Have a project in mind, want to chat about a challenge, or just want to see if we'd be a good fit? I'd love to hear from you.</p>
 
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+      </div>
+      <h3>Email me</h3>
+      <p>The best way to reach me. I respond within 24 hours on business days.</p>
+      <a href="mailto:psi.santina@gmail.com">
+        psi.santina@gmail.com
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.41 2 2 0 0 1 3.58 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.5a16 16 0 0 0 6.59 6.59l1.36-1.84a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <h3>WhatsApp / Call</h3>
+      <p>For quicker conversations or to schedule a call, reach me on WhatsApp.</p>
+      <a href="tel:+5491161585447">
+        +54 911 61585447
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 4 7 13 7 13s7-9 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <h3>Location</h3>
+      <p>Based in Buenos Aires. Available for remote work globally, and open to travel for projects.</p>
+      <a href="#">
+        Av del Libertador 13249, CABA
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </div>
+      <h3>Academic work</h3>
+      <p>See my peer-reviewed publications in behavioral science and mental health technology.</p>
+      <a href="https://www.researchgate.net/profile/Santina-Piazzese-Spratte" target="_blank">
+        ResearchGate profile
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <span class="footer-name">Santina Piazzese Spratte</span>
   <div class="footer-links">
-    <a href="mailto:psi.santina@gmail.com">Let's chat, here is my email: psi.santina@gmail.com</a>
-    <a>Address: Av del Libertador 13249 3A, Buenos Aires</a>
-    <a>Call Me: +54 911 61585447</a>
-    <a href="https://www.researchgate.net" target="_blank">ResearchGate</a>
+    <a href="mailto:psi.santina@gmail.com">psi.santina@gmail.com</a>
+    <a href="https://www.researchgate.net/profile/Santina-Piazzese-Spratte" target="_blank">ResearchGate</a>
+    <a href="tel:+5491161585447">+54 911 61585447</a>
   </div>
 </footer>
 
 </div>
 <script>
-function switchTab(tab, btn) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('panel-' + tab).classList.add('active');
-  btn.classList.add('active');
-  setTimeout(initCarousels, 50);
-}
-
-function toggleBurger() {
-  document.getElementById('burgerBtn').classList.toggle('open');
-  document.getElementById('burgerDropdown').classList.toggle('open');
-}
-
-function burgerSwitch(tab, label, item) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('panel-' + tab).classList.add('active');
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.burger-item').forEach(i => i.classList.remove('active'));
-  item.classList.add('active');
-  document.getElementById('burgerLabel').textContent = label;
-  document.getElementById('burgerBtn').classList.remove('open');
-  document.getElementById('burgerDropdown').classList.remove('open');
-  setTimeout(initCarousels, 50);
-}
-
-document.addEventListener('click', function(e) {
-  const menu = document.getElementById('burgerMenu');
-  if (menu && !menu.contains(e.target)) {
-    document.getElementById('burgerBtn').classList.remove('open');
-    document.getElementById('burgerDropdown').classList.remove('open');
-  }
-});
-
-function toggleCard(btn) {
-  const detail = btn.closest('.card-preview').nextElementSibling;
-  const isOpen = detail.classList.contains('open');
-  detail.classList.toggle('open');
-  btn.classList.toggle('open');
-  const nodes = btn.childNodes;
-  for (let n of nodes) {
-    if (n.nodeType === 3 && n.textContent.trim()) {
-      n.textContent = isOpen ? ' read more' : ' read less';
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '';
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
     }
-  }
-}
-
-function initCarousels() {
-  if (window.innerWidth > 640) return;
-  document.querySelectorAll('.projects').forEach(function(proj) {
-    if (proj.dataset.carouselInit) return;
-    proj.dataset.carouselInit = 'true';
-    const cards = Array.from(proj.querySelectorAll('.card'));
-    if (cards.length < 2) return;
-    let current = 0, startX = 0, hintShown = false;
-    const wrap = document.createElement('div');
-    wrap.className = 'carousel-wrap';
-    proj.parentNode.insertBefore(wrap, proj);
-    wrap.appendChild(proj);
-    cards[0].classList.add('carousel-active');
-    const dotsEl = document.createElement('div');
-    dotsEl.className = 'carousel-dots';
-    cards.forEach(function(_, i) {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', function() { goTo(i); });
-      dotsEl.appendChild(dot);
-    });
-    wrap.appendChild(dotsEl);
-    const nav = document.createElement('div');
-    nav.className = 'carousel-nav';
-    const prevBtn = document.createElement('button');
-    prevBtn.className = 'carousel-btn'; prevBtn.textContent = '← prev'; prevBtn.disabled = true;
-    prevBtn.addEventListener('click', function() { goTo(current - 1); });
-    const counter = document.createElement('span');
-    counter.className = 'carousel-counter'; counter.textContent = '1 / ' + cards.length;
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'carousel-btn'; nextBtn.textContent = 'next →';
-    nextBtn.addEventListener('click', function() { goTo(current + 1); });
-    nav.appendChild(prevBtn); nav.appendChild(counter); nav.appendChild(nextBtn);
-    wrap.appendChild(nav);
-    const hint = document.createElement('div');
-    hint.className = 'carousel-hint';
-    hint.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> swipe to explore';
-    wrap.appendChild(hint);
-    setTimeout(function() { hint.classList.add('hidden'); hintShown = true; }, 3000);
-    function goTo(n) {
-      if (n < 0 || n >= cards.length) return;
-      cards[current].classList.remove('carousel-active');
-      dotsEl.querySelectorAll('.carousel-dot')[current].classList.remove('active');
-      current = n;
-      cards[current].classList.add('carousel-active');
-      dotsEl.querySelectorAll('.carousel-dot')[current].classList.add('active');
-      counter.textContent = (current + 1) + ' / ' + cards.length;
-      prevBtn.disabled = current === 0; nextBtn.disabled = current === cards.length - 1;
-      if (!hintShown) { hint.classList.add('hidden'); hintShown = true; }
-    }
-    proj.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; }, { passive: true });
-    proj.addEventListener('touchend', function(e) {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) diff > 0 ? goTo(current + 1) : goTo(current - 1);
-    }, { passive: true });
   });
-}
-document.addEventListener('DOMContentLoaded', initCarousels);
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.animate').forEach((el, i) => {
+  if (!el.style.animationDelay) el.style.animationDelay = (i * 0.07) + 's';
+  observer.observe(el);
+});
 </script>
 </body>
 </html>
